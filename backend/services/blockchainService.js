@@ -1,9 +1,17 @@
-const Web3 = require('web3');
+let Web3Ctor;
+try {
+	({ Web3: Web3Ctor } = require('web3'));
+	if (!Web3Ctor) {
+		Web3Ctor = require('web3');
+	}
+} catch (e) {
+	Web3Ctor = require('web3');
+}
 const config = require('../../config/config');
 
 class BlockchainService {
     constructor() {
-        this.web3 = new Web3(config.blockchain.rpcUrl);
+        this.web3 = new Web3Ctor(config.blockchain.rpcUrl);
         this.faucetAddress = config.blockchain.faucetAddress;
         this.faucetPrivateKey = config.blockchain.faucetPrivateKey;
         this.tokenContractAddress = config.blockchain.tokenContractAddress;
