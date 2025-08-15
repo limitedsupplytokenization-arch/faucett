@@ -1,0 +1,48 @@
+{
+  "server": {
+    "port": 3000,
+    "host": "localhost",
+    "environment": "development"
+  },
+  "blockchain": {
+    "networkId": 8453,
+    "rpcUrl": "https://mainnet.base.org",
+    "faucetAddress": "YOUR_FAUCET_ADDRESS_HERE",
+    "faucetPrivateKey": "YOUR_PRIVATE_KEY_HERE",
+    "tokenContractAddress": "YOUR_LST_TOKEN_CONTRACT_ADDRESS_HERE",
+    "gasLimit": 21000,
+    "gasPrice": "auto"
+  },
+      "faucet": {
+        "claimAmount": "1000000000000000000",
+        "cooldownHours": 1,
+        "maxClaimsPerIP": 5,
+        "maxClaimsPerDay": 1000,
+        "minBalance": "100000000000000000000"
+    },
+  "recaptcha": {
+    "siteKey": "YOUR_RECAPTCHA_SITE_KEY_HERE",
+    "secretKey": "YOUR_RECAPTCHA_SECRET_KEY_HERE",
+    "version": "v2",
+    "theme": "light",
+    "size": "normal",
+    "minScore": 0.5
+  },
+  "security": {
+    "rateLimitWindow": 900000,
+    "rateLimitMax": 100,
+    "trustProxy": true,
+    "enableCors": true
+  },
+  "database": {
+    "type": "file",
+    "backupInterval": 86400000,
+    "maxBackups": 7
+  },
+  "logging": {
+    "level": "info",
+    "file": "logs/app.log",
+    "maxSize": "10m",
+    "maxFiles": 5
+  }
+}

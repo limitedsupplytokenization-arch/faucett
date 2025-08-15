@@ -1,0 +1,354 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Sadece arkaplan resmi - hiçbir efekt yok */
+    background-image: url('images/background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 20px;
+    padding-top: 60px;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Animated background particles - REMOVED */
+/* body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.3) 0%, transparent 50%);
+    animation: float 20s ease-in-out infinite;
+    z-index: -1;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    33% { transform: translateY(-20px) rotate(120deg); }
+    66% { transform: translateY(20px) rotate(240deg); }
+} */
+
+.container {
+    width: 100%;
+    max-width: 420px;
+    z-index: 1;
+}
+
+.faucet-box {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 12px;
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.1),
+        0 0 0 1px rgba(255, 255, 255, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.faucet-box::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(from 0deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    animation: rotate 10s linear infinite;
+    z-index: -1;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.header h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(45deg, #2c3e50, #34495e, #2c3e50);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradient 3s ease infinite;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    letter-spacing: -0.02em;
+}
+
+@keyframes gradient {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    color: #666;
+    margin-top: 10px;
+    font-weight: 400;
+}
+
+.info-box {
+    background: linear-gradient(135deg, #2c3e50, #34495e);
+    color: white;
+    padding: 12px;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(44, 62, 80, 0.3);
+}
+
+.info-box h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.info-box p {
+    margin: 5px 0;
+    font-size: 0.95rem;
+}
+
+.faucet-form {
+    margin-bottom: 15px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #333;
+    font-size: 0.95rem;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #e1e5e9;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-family: 'Orbitron', monospace;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #2c3e50;
+    box-shadow: 0 0 0 3px rgba(44, 62, 80, 0.1);
+    transform: translateY(-2px);
+}
+
+.recaptcha-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.claim-btn {
+    width: 100%;
+    padding: 18px;
+    background: linear-gradient(45deg, #2c3e50, #34495e);
+    color: white;
+    border: none;
+    border-radius: 15px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    font-family: 'Orbitron', monospace;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 20px rgba(44, 62, 80, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.claim-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.claim-btn:hover::before {
+    left: 100%;
+}
+
+.claim-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(44, 62, 80, 0.4);
+}
+
+.claim-btn:active {
+    transform: translateY(-1px);
+}
+
+.claim-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.countdown {
+    background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+    color: white;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    margin-bottom: 20px;
+    box-shadow: 0 10px 20px rgba(255, 107, 107, 0.3);
+}
+
+.countdown h3 {
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.timer {
+    font-size: 2rem;
+    font-weight: 900;
+    font-family: 'Orbitron', monospace;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.status {
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.status.success {
+    background: linear-gradient(135deg, #00b894, #00a085);
+    color: white;
+    box-shadow: 0 10px 20px rgba(0, 184, 148, 0.3);
+}
+
+.status.error {
+    background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+    color: white;
+    box-shadow: 0 10px 20px rgba(255, 107, 107, 0.3);
+}
+
+.status.info {
+    background: linear-gradient(135deg, #74b9ff, #0984e3);
+    color: white;
+    box-shadow: 0 10px 20px rgba(116, 185, 255, 0.3);
+}
+
+.footer {
+    text-align: center;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.footer-link {
+    color: #2c3e50;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.footer-link:hover {
+    color: #34495e;
+    text-decoration: underline;
+    transform: translateY(-1px);
+}
+
+.hidden {
+    display: none;
+}
+
+/* Loading animation */
+.loading {
+    position: relative;
+}
+
+.loading .btn-text {
+    opacity: 0;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid transparent;
+    border-top: 2px solid white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    .faucet-box {
+        padding: 20px;
+        margin: 10px;
+    }
+    
+    .header h1 {
+        font-size: 2rem;
+    }
+    
+    .timer {
+        font-size: 1.5rem;
+    }
+    
+    .claim-btn {
+        padding: 15px;
+        font-size: 1.1rem;
+    }
+}
+
+/* Glow effect for special elements */
+.faucet-box:hover {
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.1),
+        0 0 0 1px rgba(255, 255, 255, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6),
+        0 0 30px rgba(102, 126, 234, 0.2);
+}

@@ -1,0 +1,68 @@
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LST Faucet - Nostalgic Crypto Faucet</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="faucet-box">
+            <div class="header">
+                <h1>FAUCET</h1>
+            </div>
+            
+            <div class="faucet-content">
+                <div class="info-box">
+                    <h3>💰 Get Free LST Tokens!</h3>
+                    <p>Earn <strong>1 LST</strong> every hour</p>
+                </div>
+                
+                <form id="faucetForm" class="faucet-form">
+                    <div class="input-group">
+                        <label for="ethAddress">Your ETH Address:</label>
+                        <input 
+                            type="text" 
+                            id="ethAddress" 
+                            name="ethAddress" 
+                            placeholder="0x..." 
+                            required
+                            pattern="^0x[a-fA-F0-9]{40}$"
+                        >
+                    </div>
+                    
+                    <div class="recaptcha-container">
+                        <div class="g-recaptcha" data-sitekey="6LcDDaYrAAAAAO519GO1GRLotQExuniv4ADU4AzU"></div>
+                    </div>
+                    
+                    <button type="submit" id="claimButton" class="claim-btn">
+                        <span class="btn-text"> CLAIM LST!</span>
+                    </button>
+                </form>
+                
+                <div id="countdown" class="countdown hidden">
+                    <h3>⏰ Next Claim Time</h3>
+                    <div class="timer">
+                        <span id="hours">00</span>:<span id="minutes">00</span>:<span id="seconds">00</span>
+                    </div>
+                </div>
+                
+                <div id="status" class="status hidden"></div>
+            </div>
+            
+            <div class="footer">
+                <p>
+                    <a href="https://basescan.org/token/0x1d41f2046e119a9ad132fc909045a02de6e7e502" target="_blank" class="footer-link">🔗 Base Network</a> | 
+                    <a href="https://x.com/LSTcoins" target="_blank" class="footer-link">💎 LST Token X</a> | 
+                     Secure Transfer
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
