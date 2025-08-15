@@ -1,0 +1,10 @@
+{
+  "name": "lst-faucet",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "cd frontend && npm run dev",
+    "build": "cd frontend && npm run build",
+    "start": "cd frontend && npm start"
+  },
+  "main": "index.js"
+}
